@@ -6,7 +6,7 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:27:58 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/01 19:28:13 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/02 13:25:16 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-int	ft_compare(char* s1, char* s2)
-{
-	if (ft_atoi(s1) < ft_atoi(s2))
-		return (1);
-	return (0);
-}
-
 int main(void)
 {
 	int		fd;
@@ -32,11 +25,13 @@ int main(void)
 
 	fd = open("test", O_RDONLY);
 	ret = 1;
-	while (ret)
+	line = NULL;
+	while (ret > 0)
 	{
 		ret = get_next_line(fd, &line);
 		printf("[%s]\n", line);
-		free(line);
+		if (line != NULL)
+			free(line);
 	}
 	return (0);
 }

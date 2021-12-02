@@ -6,7 +6,7 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 17:05:21 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/01 19:12:11 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/02 13:25:50 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ static int	ft_get_line(char **saved, char **line, int ret)
 	int		c;
 	char	*temp;
 
-	if (ret < 0)
-		return (-1);
-	else if (ret == 0 && *saved == NULL)
+	if (ret == 0 && *saved == NULL)
 		return (0);
 	c = 0;
 	while ((*saved)[c] != '\0' && (*saved)[c] != '\n')
@@ -48,6 +46,9 @@ static int	ft_save_buffer(char *buf, char **line, int ret, int fd)
 
 	while (ret)
 	{
+		ret = read(fd, buf, BUFF_SIZE);
+		if (ret < 0)
+			return (-1);
 		buf[ret] = '\0';
 		if (saved[fd] != NULL)
 		{
@@ -70,8 +71,6 @@ int	get_next_line(const int fd, char **line)
 
 	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
 		return (-1);
-	ret = read(fd, buf, BUFF_SIZE);
-	if (ret < 0)
-		return (-1);
+	ret = 1;
 	return (ft_save_buffer(buf, line, ret, fd));
 }
