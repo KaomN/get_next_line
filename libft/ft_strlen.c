@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 11:27:58 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/03 16:05:01 by conguyen         ###   ########.fr       */
+/*   Created: 2021/10/28 16:02:30 by conguyen          #+#    #+#             */
+/*   Updated: 2021/11/27 15:07:22 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "get_next_line.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+/*
+** DESCRIPTION
+** ft_strlen() function calculates the length of the string pointed to by s,
+** excluding the terminating null byte ('\0').
+**
+** RETURN VALUES
+** ft_strlen() function returns the number of bytes in the string pointed to
+** by s.
+*/
+
+size_t	ft_strlen(const char *s)
 {
-	int		fd;
-	char	*line;
-	int		ret;
+	unsigned int	len;
 
-	fd = open("test", O_RDONLY);
-	ret = 1;
-	line = NULL;
-	while (ret > 0)
-	{
-		ret = get_next_line(fd, &line);
-		printf("[%s]\n", line);
-		if (line != NULL)
-			free(line);
-	}
-	return (0);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }

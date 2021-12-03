@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 11:27:58 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/03 16:05:01 by conguyen         ###   ########.fr       */
+/*   Created: 2021/10/31 08:45:17 by conguyen          #+#    #+#             */
+/*   Updated: 2021/11/27 14:50:00 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "get_next_line.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+/*
+** DESCRIPTION
+** ft_bzero() function erases the data in the n bytes of the memory starting
+** at the location pointed to by s, by writing zeroes (bytes containing '\0')
+** to that area.
+*/
+
+void	ft_bzero(void *s, size_t n)
 {
-	int		fd;
-	char	*line;
-	int		ret;
+	size_t	c;
 
-	fd = open("test", O_RDONLY);
-	ret = 1;
-	line = NULL;
-	while (ret > 0)
-	{
-		ret = get_next_line(fd, &line);
-		printf("[%s]\n", line);
-		if (line != NULL)
-			free(line);
-	}
-	return (0);
+	c = 0;
+	while (c < n)
+		((char *)s)[c++] = 0;
 }

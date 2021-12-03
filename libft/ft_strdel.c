@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 11:27:58 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/03 16:05:01 by conguyen         ###   ########.fr       */
+/*   Created: 2021/11/04 17:06:13 by conguyen          #+#    #+#             */
+/*   Updated: 2021/11/27 15:03:21 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "get_next_line.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "libft.h"
+#include <stdlib.h>
 
-int main(void)
+/*
+** DESCRIPTION
+** ft_strdel() function takes as a parameter the address of a string that needs
+** to be freed with free(3), then sets its pointer to NULL.
+*/
+
+void	ft_strdel(char **as)
 {
-	int		fd;
-	char	*line;
-	int		ret;
-
-	fd = open("test", O_RDONLY);
-	ret = 1;
-	line = NULL;
-	while (ret > 0)
+	if (as != NULL)
 	{
-		ret = get_next_line(fd, &line);
-		printf("[%s]\n", line);
-		if (line != NULL)
-			free(line);
+		free(*as);
+		*as = NULL;
 	}
-	return (0);
 }

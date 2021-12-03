@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 11:27:58 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/03 16:05:01 by conguyen         ###   ########.fr       */
+/*   Created: 2021/11/05 14:41:04 by conguyen          #+#    #+#             */
+/*   Updated: 2021/11/27 15:10:09 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "get_next_line.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "libft.h"
+#include <stdlib.h>
 
-int main(void)
+/*
+** DESCRIPTION
+** ft_strnew() function allocates with malloc(3) and returns a "fresh" string
+** ending with ('\0'). Each character of the string is initialized as ('\0').
+*/
+
+char	*ft_strnew(size_t size)
 {
-	int		fd;
-	char	*line;
-	int		ret;
+	char	*str;
 
-	fd = open("test", O_RDONLY);
-	ret = 1;
-	line = NULL;
-	while (ret > 0)
+	str = (char *)malloc(sizeof(*str) * size + 1);
+	if (str == NULL)
+		return (NULL);
+	else
 	{
-		ret = get_next_line(fd, &line);
-		printf("[%s]\n", line);
-		if (line != NULL)
-			free(line);
+		ft_bzero(str, sizeof(*str) * size + 1);
+		return (str);
 	}
-	return (0);
 }

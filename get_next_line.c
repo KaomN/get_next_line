@@ -6,12 +6,12 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 17:05:21 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/02 13:25:50 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:05:08 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "../Libft/libft.h"
+#include "libft/libft.h"
 
 static int	ft_get_line(char **saved, char **line, int ret)
 {
