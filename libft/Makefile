@@ -6,13 +6,12 @@
 #    By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 14:59:57 by conguyen          #+#    #+#              #
-#    Updated: 2021/12/02 08:42:35 by conguyen         ###   ########.fr        #
+#    Updated: 2021/12/10 11:52:51 by conguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CFILES += ft_atoi.c
 CFILES += ft_strchr.c
 CFILES += ft_strdel.c
 CFILES += ft_strdup.c
