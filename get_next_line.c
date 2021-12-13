@@ -6,20 +6,18 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 17:05:21 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/03 16:05:08 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/13 15:14:22 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-static int	ft_get_line(char **saved, char **line, int ret)
+static int	ft_get_line(char **saved, char **line)
 {
 	int		c;
 	char	*temp;
 
-	if (ret == 0 && *saved == NULL)
-		return (0);
 	c = 0;
 	while ((*saved)[c] != '\0' && (*saved)[c] != '\n')
 		c++;
@@ -61,7 +59,7 @@ static int	ft_save_buffer(char *buf, char **line, int ret, int fd)
 		if (ft_strchr(saved[fd], '\n') != NULL)
 			break ;
 	}
-	return (ft_get_line(&saved[fd], line, ret));
+	return (ft_get_line(&saved[fd], line));
 }
 
 int	get_next_line(const int fd, char **line)
