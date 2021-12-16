@@ -6,7 +6,7 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:27:58 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/16 12:45:50 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/16 14:29:01 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,14 @@ void	test_basic(char *argv)
 
 	fd = open(argv, O_RDONLY);
 	ret = 1;
-	while (ret > 0)
+	while ((ret = get_next_line(fd, &line)) == 1)
 	{
-		ret = get_next_line(fd, &line);
+		
 		printf("line:[%s] return:[%d]\n", line, ret);
-		free(line);
+		if (ret > 0)
+			free(line);
 	}
+	printf("line:[%s]\n", line);
 	close(fd);
 }
 
