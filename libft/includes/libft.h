@@ -6,7 +6,7 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 13:48:13 by conguyen          #+#    #+#             */
-/*   Updated: 2021/11/28 18:53:37 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/16 12:53:48 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <stdlib.h>
 
 typedef struct s_list
 {

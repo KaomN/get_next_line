@@ -6,7 +6,7 @@
 #    By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 14:59:57 by conguyen          #+#    #+#              #
-#    Updated: 2021/12/10 11:52:51 by conguyen         ###   ########.fr        #
+#    Updated: 2021/12/16 12:51:37 by conguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ CFLAGS = -c -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) $(CFILES)
+	$(CC) -I includes $(CFLAGS) $(CFILES)
 	ar rc $(NAME) $(OBJ)
 
 clean:
