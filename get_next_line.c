@@ -6,7 +6,7 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 17:05:21 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/13 15:14:22 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/15 10:35:50 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	get_next_line(const int fd, char **line)
 	char		buf[BUFF_SIZE + 1];
 	int			ret;
 
-	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
+	if (fd < 0 || BUFF_SIZE <= 0)
 		return (-1);
 	ret = 1;
 	return (ft_save_buffer(buf, line, ret, fd));
