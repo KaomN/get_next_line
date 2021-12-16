@@ -6,12 +6,11 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 17:05:21 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/16 14:32:42 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/16 15:56:43 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "libft.h"
 
 static int	ft_get_line(char **saved, char **line)
 {
@@ -29,6 +28,8 @@ static int	ft_get_line(char **saved, char **line)
 			return (-1);
 		free(*saved);
 		*saved = temp;
+		if ((**saved) == '\0')
+			ft_strdel(saved);
 	}
 	else
 	{
@@ -49,10 +50,7 @@ static int	ft_save_buffer(char *buf, char **line, int ret, int fd)
 		if (ret < 0)
 			return (-1);
 		if (ret == 0 && saved[fd] == NULL)
-		{
-			
 			return (0);
-		}
 		buf[ret] = '\0';
 		if (saved[fd] != NULL)
 		{
