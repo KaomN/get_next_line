@@ -6,7 +6,7 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 13:48:13 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/16 12:53:48 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/21 14:59:28 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {

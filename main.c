@@ -6,7 +6,7 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:27:58 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/20 16:13:09 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/21 14:26:42 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	test_read_stdin_redirection(void)
 	ret = 1;
 	while ((ret = get_next_line(fd, &line)) == 1)
 	{
-		
 		printf("line:[%s] return:[%d]\n", line, ret);
 		free(line);
 	}
@@ -44,7 +43,6 @@ void	test_basic(char *argv)
 	ret = 1;
 	while ((ret = get_next_line(fd, &line)) == 1)
 	{
-		
 		printf("line:[%s] return:[%d]\n", line, ret);
 		free(line);
 	}
@@ -83,7 +81,7 @@ int	main(int argc, char **argv)
 	}
 	else if (argc == 2)
 	{
-			test_basic(argv[1]);
+		test_basic(argv[1]);
 	}
 	else if (argc == 3)
 	{

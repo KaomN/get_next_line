@@ -6,7 +6,7 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 17:05:21 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/20 15:04:30 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/21 14:43:25 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ static int	ft_get_line(char **saved, char **line)
 	return (1);
 }
 
-static int	ft_save_buffer(char *buf, char **line, int ret, int fd)
+static int	ft_save_buffer(char *buf, char **line, char **saved, int fd)
 {
 	char		*temp;
-	static char	*saved[MAX_FD];
+	int			ret;
 
+	ret = 1;
 	while (ret)
 	{
 		ret = read(fd, buf, BUFF_SIZE);
@@ -69,10 +70,12 @@ static int	ft_save_buffer(char *buf, char **line, int ret, int fd)
 int	get_next_line(const int fd, char **line)
 {
 	char		buf[BUFF_SIZE + 1];
-	int			ret;
+	static char	*saved[MAX_FD];
 
 	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
 		return (-1);
-	ret = 1;
-	return (ft_save_buffer(buf, line, ret, fd));
+	if (saved[fd] != NULL)
+		if (ft_strchr(saved[fd], '\n') != NULL)
+			return (ft_get_line(&saved[fd], line));
+	return (ft_save_buffer(buf, line, &saved[fd], fd));
 }
