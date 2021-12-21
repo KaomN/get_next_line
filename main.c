@@ -6,7 +6,7 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:27:58 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/16 15:55:30 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/20 16:13:09 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ void	test_basic(char *argv)
 	{
 		
 		printf("line:[%s] return:[%d]\n", line, ret);
-		if (ret > 0)
-			free(line);
+		free(line);
 	}
 	close(fd);
 }
