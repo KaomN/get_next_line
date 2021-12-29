@@ -6,7 +6,7 @@
 /*   By: conguyen <conguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:27:58 by conguyen          #+#    #+#             */
-/*   Updated: 2021/12/21 14:26:42 by conguyen         ###   ########.fr       */
+/*   Updated: 2021/12/29 10:07:15 by conguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	test_read_stdin_redirection(void)
 		printf("line:[%s] return:[%d]\n", line, ret);
 		free(line);
 	}
+	if (ret == -1)
+		printf("line:[%s] return:[%d]\n", line, ret);
 	close(fd);
 }
 
